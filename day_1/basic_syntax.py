@@ -30,6 +30,7 @@ print(bin(x), bin(c))
 print(0 & 1)
 print(2 | 1)
 
+
 # &和|表示位运算，按位求交集或者并集，
 # 1&2 =0，表示求1和2的交集，|表示或运算，1|2 = 3
 # and 不一样，返回的是布尔值，and有0返回0，没有0，返回后一个值，如 2and3 = 3
@@ -38,7 +39,7 @@ print(2 | 1)
 
 def counter(input_num: int):
     # x = bin(input())
-    #input_num = bin(input_num)
+    # input_num = bin(input_num)
     count = 0
     while input_num > 0:
         count += 1
@@ -58,7 +59,41 @@ list_str = map(str, list_1)
 print(tuple(list_str))
 
 import math
-print(list(map(math.sqrt,list_1)))
 
+print(list(map(math.sqrt, list_1)))
 
 # lambda的使用：
+# test = lambda x: x**2
+# print(test(int(input())))
+
+bar = lambda x, y: x if x > y else y
+print(bar(1, 3))
+
+
+def f(x, y): return x if x > y else y
+
+
+print(f(10, 9))
+
+
+def foo(list_1: list):
+    a = []
+    b = []
+    _test = map(lambda x: a.append(x) if x % 2 == 0 else b.append(x), list_1)
+    a.sort()
+    b.sort()
+    print(a + b)
+
+
+foo([1, 6, 5, 4, 8, 9, 2])
+
+def foo(income):
+    return ("income" + str(income))
+
+
+r = map(foo, ["A", "B", "C"])
+print(r)
+r1 = list(map(foo, ["A", "B", "C"]))
+print(r1)
+r2 = tuple(map(foo, ["A", "B", "C"]))
+print(r2)
